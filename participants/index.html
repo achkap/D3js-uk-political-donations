@@ -164,34 +164,22 @@
     
   <script>
   // Wrap every letter in a span
-  $('.ml13 .letters').each(function(){
-    $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
-  });
-   
-   ml.timelines["ml13"] = anime.timeline({loop: true}) 
+$('.ml13').each(function(){
+  $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
+});
+
+anime.timeline({loop: true})
   .add({
     targets: '.ml13 .letter',
-    scale: [0.3,1],
-    opacity: [0,1],
     translateY: [100,0],
     translateZ: 0,
+    opacity: [0,1],
     easing: "easeOutExpo",
-    duration: 1500,
-    elasticity: 600,
+    duration: 1400,
     delay: function(el, i) {
       return 300 + 30 * i;
     }
   }).add({
-    targets: '.ml13 .line',
-    scaleX: [0,1],
-    opacity: [0.5,1],
-    easing: "easeOutExpo",
-    duration: 700,
-    offset: '-=875',
-    delay: function(el, i, l) {
-      return 80 * (l - i);
-    }
-   }).add({
     targets: '.ml13 .letter',
     translateY: [0,-100],
     opacity: [1,0],
@@ -200,7 +188,7 @@
     delay: function(el, i) {
       return 100 + 30 * i;
     }
-  });    
+  });
   </script>  
   </div>  
   <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
