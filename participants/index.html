@@ -157,31 +157,32 @@
       <h4>
         <span>&nbsp;</span>
         <img src="https://avatars0.githubusercontent.com/u/22666247?s=40&v=4" height="42" width="42">  
-        <span class="ml9"><span class="letters">&nbsp;achkap&nbsp;</span></span>
+        <span class="ml13"><span class="letters">&nbsp;achkap&nbsp;</span></span>
       </h4>
   </div>
  
     
   <script>
   // Wrap every letter in a span
-  $('.ml9 .letters').each(function(){
+  $('.ml13 .letters').each(function(){
     $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
   });
    
-   ml.timelines["ml9"] = anime.timeline({loop: true}) 
+   ml.timelines["ml13"] = anime.timeline({loop: true}) 
   .add({
-    targets: '.ml9 .letter',
+    targets: '.ml13 .letter',
     scale: [0.3,1],
     opacity: [0,1],
+    translateY: [100,0],
     translateZ: 0,
     easing: "easeOutExpo",
     duration: 1500,
     elasticity: 600,
     delay: function(el, i) {
-      return 70 * (i+1)
+      return 300 + 30 * i;
     }
   }).add({
-    targets: '.ml9 .line',
+    targets: '.ml13 .line',
     scaleX: [0,1],
     opacity: [0.5,1],
     easing: "easeOutExpo",
@@ -191,11 +192,20 @@
       return 80 * (l - i);
     }
   }).add({
-    targets: '.ml9',
+    targets: '.ml13',
     opacity: 0,
     duration: 1000,
     easing: "easeOutExpo",
     delay: 1000
+  }).add({
+    targets: '.ml13 .letter',
+    translateY: [0,-100],
+    opacity: [1,0],
+    easing: "easeInExpo",
+    duration: 1200,
+    delay: function(el, i) {
+      return 100 + 30 * i;
+    }
   });    
   </script>  
   </div>  
